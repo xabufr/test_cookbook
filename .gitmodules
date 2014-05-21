@@ -1,0 +1,3 @@
+[submodule "ark"]
+	path = ark
+	url = git://github.com/bryanwb/chef-ark.git
