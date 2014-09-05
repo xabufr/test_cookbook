@@ -1,0 +1,6 @@
+source "https://supermarket.getchef.com"
+
+metadata
+
+cookbook 'elasticsearch', '~> 0.3.10'
+cookbook 'aws', '~> 2.4.0'
