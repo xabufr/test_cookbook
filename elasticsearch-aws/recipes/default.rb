@@ -28,10 +28,12 @@ aws_s3_file "/etc/ssl/certs/elasticsearch.pem" do
 end
 
 ruby_block "add users to passwords file" do
-  require 'webrick/httpauth/htpasswd'
-  @htpasswd = WEBrick::HTTPAuth::Htpasswd.new("/usr/local/etc/elasticsearch/passwords")
-  @htpasswd.set_passwd( 'Elasticsearch', node[:es_user], node[:es_password] )
-  @htpasswd.flush
+  block do
+    require 'webrick/httpauth/htpasswd'
+    @htpasswd = WEBrick::HTTPAuth::Htpasswd.new("/usr/local/etc/elasticsearch/passwords")
+    @htpasswd.set_passwd( 'Elasticsearch', node[:es_user], node[:es_password] )
+    @htpasswd.flush
+  end 
 end
 
 nginx_proxy "elasticsearch.keepalert.com" do
