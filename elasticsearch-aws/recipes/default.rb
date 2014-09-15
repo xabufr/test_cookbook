@@ -29,7 +29,7 @@ end
 
 ruby_block "add users to passwords file" do
   require 'webrick/httpauth/htpasswd'
-  @htpasswd = WEBrick::HTTPAuth::Htpasswd.new(node.elasticsearch[:path][:conf]} + "/passwords")
+  @htpasswd = WEBrick::HTTPAuth::Htpasswd.new(node.elasticsearch[:path][:conf] + "/passwords")
   node.elasticsearch[:users].each do |u|
     @htpasswd.set_passwd( 'Elasticsearch', u['username'], u['password'] )
   end
@@ -42,6 +42,6 @@ nginx_proxy "elasticsearch.keepalert.com" do
   cookbook "elasticsearch-aws"
   custom_config [
 	  "auth_basic           \"Login required\";",
-	  "auth_basic_user_file " + node.elasticsearch[:path][:conf]} + "/passwords;" 
+	  "auth_basic_user_file " + node.elasticsearch[:path][:conf] + "/passwords;" 
   ]
 end
