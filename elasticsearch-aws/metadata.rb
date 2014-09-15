@@ -9,4 +9,5 @@ version          '0.1.0'
 depends "aws"
 depends "nginx"
 depends "runit"
+depends "ohai"
 depends "nginx-proxy"
