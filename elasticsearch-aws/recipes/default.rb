@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 include_recipe 'aws'
-inslude_recipe 'nginx-proxy'
+include_recipe 'nginx-proxy'
 
 aws_s3_file "/etc/ssl/private/elasticsearch.key" do
   bucket "keepalert"
