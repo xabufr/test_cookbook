@@ -8,11 +8,19 @@
 #
 include_recipe 'aws'
 
+directory "/etc/ssl/private" do
+  action :create
+end
+
 aws_s3_file "/etc/ssl/private/elasticsearch.key" do
   bucket "keepalert"
   remote_path "applications/ssl/elasticsearch/key.pem"
   aws_access_key_id node[:custom_access_key]
   aws_secret_access_key node[:custom_secret_key]
+end
+
+directory "/etc/ssl/certificates" do
+  action :create
 end
 
 aws_s3_file "/etc/ssl/certificates/elasticsearch.pem" do
