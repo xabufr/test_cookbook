@@ -36,6 +36,11 @@ ruby_block "add users to passwords file" do
   end 
 end
 
+file "/usr/local/etc/elasticsearch/passwords" do
+  owner nginx and group nginx and mode 0755
+  action :touch
+end
+
 nginx_proxy "elasticsearch.keepalert.com" do
   ssl_key "elasticsearch"
   port 9200
