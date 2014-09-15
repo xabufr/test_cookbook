@@ -29,4 +29,5 @@ end
 nginx_proxy "elasticsearch.keepalert.com" do
   ssl_key "elasticsearch"
   port 9200
+  custom_config "listen 443 ssl default_server;"
 end
