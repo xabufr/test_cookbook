@@ -37,7 +37,7 @@ ruby_block "add users to passwords file" do
 end
 
 file "/usr/local/etc/elasticsearch/passwords" do
-  owner nginx and group nginx and mode 0755
+  owner 'nginx' and group 'nginx' and mode 0755
   action :touch
 end
 
