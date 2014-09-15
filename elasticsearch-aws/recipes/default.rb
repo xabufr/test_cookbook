@@ -8,8 +8,9 @@
 #
 
 include_recipe 'aws'
+inslude_recipe 'nginx-proxy'
 
-aws_s3_file "/etc/key.pem" do
+aws_s3_file "/etc/ssl/private/elasticsearch.key" do
   bucket "keepalert"
   remote_path "applications/ssl/elasticsearch/key.pem"
 end
