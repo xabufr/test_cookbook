@@ -29,7 +29,7 @@ end
 
 ruby_block "add users to passwords file" do
   require 'webrick/httpauth/htpasswd'
-  @htpasswd = WEBrick::HTTPAuth::Htpasswd.new(node.elasticsearch[:path][:conf]}/passwords)
+  @htpasswd = WEBrick::HTTPAuth::Htpasswd.new(node.elasticsearch[:path][:conf]} + "/passwords")
   node.elasticsearch[:users].each do |u|
     @htpasswd.set_passwd( 'Elasticsearch', u['username'], u['password'] )
   end
