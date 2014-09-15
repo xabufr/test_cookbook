@@ -7,4 +7,6 @@ long_description 'Installs/Configures elasticsearch-aws'
 version          '0.1.0'
 
 depends "aws"
+depends "nginx"
+depends "runit"
 depends "nginx-proxy"

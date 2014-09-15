@@ -22,7 +22,7 @@ aws_s3_file "/etc/ssl/certificates/elasticsearch.pem" do
   aws_secret_access_key node[:custom_secret_key]
 end
 
-nginx_proxy 'elasticsearch.keepalert.com' do
-  ssl_key 'elasticsearch'
+nginx_proxy "elasticsearch.keepalert.com" do
+  ssl_key "elasticsearch"
   port 9200
 end
